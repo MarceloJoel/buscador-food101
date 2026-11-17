@@ -1,0 +1,22 @@
+# Buscador multimodal de imagenes - Food-101
+# Python 3.12
+#
+# PyTorch con CUDA 12.6 se instala aparte:
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu126
+
+torch>=2.14.0
+torchvision>=0.29.0
+open_clip_torch>=4.2.0
+faiss-cpu>=1.16.0
+datasets>=5.2.0
+numpy>=2.5.0
+Pillow>=13.0.0
+tqdm>=4.70.0
+
+fastapi>=0.120.0
+uvicorn[standard]>=0.38.0
+python-multipart>=0.0.20
+
+streamlit>=1.40.0
+requests>=2.34.0
+matplotlib>=3.10.0

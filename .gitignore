@@ -1,0 +1,23 @@
+# Entorno virtual
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Artefactos generados (se reconstruyen con construir_indice.py)
+data/images/
+data/index/
+*.npy
+*.faiss
+
+# Salidas locales
+poc_resultado.jpg
+resultado.jpg
+
+# Sistema
+.DS_Store
+Thumbs.db
+.streamlit/secrets.toml
