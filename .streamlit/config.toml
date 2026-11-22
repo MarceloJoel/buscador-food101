@@ -4,3 +4,9 @@ primaryColor = "#17332A"
 backgroundColor = "#F6F7F2"
 secondaryBackgroundColor = "#E3E9DF"
 textColor = "#17332A"
+
+[server]
+# Recarga sola al guardar, sin pulsar "Rerun".
+runOnSave = true
+# No vigilar las carpetas pesadas: 25 250 imagenes y el entorno virtual.
+folderWatchBlacklist = ["data", ".venv", "resultados", "__pycache__", ".git"]

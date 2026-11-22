@@ -14,8 +14,8 @@ st.set_page_config(
 )
 
 paginas = [
-    st.Page("vistas/texto.py", title="Buscar por descripción", icon=":material/restaurant_menu:", default=True),
-    st.Page("vistas/imagen.py", title="Buscar por foto", icon=":material/photo_camera:"),
+    st.Page("vistas/texto.py", title="Buscar por Descripción", icon=":material/restaurant_menu:", default=True),
+    st.Page("vistas/imagen.py", title="Buscar por Foto", icon=":material/photo_camera:"),
 ]
 
 st.navigation(paginas).run()

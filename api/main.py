@@ -2,7 +2,11 @@
 main.py — API FastAPI del buscador multimodal.
 
 Arrancar desde la raiz del proyecto:
-    uvicorn api.main:app --reload --port 8000
+    uvicorn api.main:app --port 8000
+
+No usar --reload: el vigilante rastrea data/images (25 250 archivos) y .venv,
+y reinicia la API cada vez que se guarda cualquier .py, incluidos los de
+Streamlit. Para desarrollar sobre la API: --reload --reload-dir api
 
 Endpoints:
     GET  /health         estado del modelo y del indice
