@@ -270,8 +270,8 @@ def barra_estado() -> bool:
             "<span class='luz' style='--c:#5BD08A'>Cocina abierta</span>"
             f"<p class='cifra'>{est['vectores']:,}</p>"
             f"<p class='pie' style='margin-top:0'>fotos de {est['clases']} platos en el índice</p>"
-            f"<p class='pie'>{escape(est['modelo'])} / {escape(est['pesos'])}<br>"
-            f"{est['dim']} dimensiones, en {escape(est['dispositivo'])}</p>"
+            f"<p class='pie'>Modelo: {escape(est['modelo'])}<br>Pesos: {escape(est['pesos'])}</p>"
+            f"<p class='pie' style='margin-top:1rem'>{est['dim']} dimensiones, en {escape(est['dispositivo'])}</p>"
         )
         listo = True
 
