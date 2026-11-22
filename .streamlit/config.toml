@@ -8,5 +8,7 @@ textColor = "#17332A"
 [server]
 # Recarga sola al guardar, sin pulsar "Rerun".
 runOnSave = true
+# Sirve la carpeta static/ en la ruta app/static/ (imagen de portada).
+enableStaticServing = true
 # No vigilar las carpetas pesadas: 25 250 imagenes y el entorno virtual.
 folderWatchBlacklist = ["data", ".venv", "resultados", "__pycache__", ".git"]

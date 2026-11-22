@@ -55,6 +55,22 @@ _CSS = """
   margin: 0;
 }
 
+/* ---------- Portada con foto de fondo ---------- */
+.st-key-portada {
+  border-radius: 20px;
+  padding: 2.75rem 2.5rem 2.1rem;
+  margin-bottom: 2.5rem;
+  background:
+    linear-gradient(100deg,
+      rgba(246, 247, 242, 0.86) 0%,
+      rgba(246, 247, 242, 0.78) 45%,
+      rgba(246, 247, 242, 0.48) 100%),
+    url("app/static/portada.jpg") center / cover no-repeat;
+  box-shadow: 0 1px 3px rgba(23, 51, 42, .07), 0 12px 32px rgba(23, 51, 42, .07);
+}
+.st-key-portada .hero { margin-bottom: 1.7rem; }
+.st-key-portada .nota { margin-bottom: 0; }
+
 /* ---------- Campo de texto ---------- */
 [data-testid="stTextInputRootElement"] {
   background: var(--plato);

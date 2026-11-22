@@ -15,18 +15,20 @@ from ui_comun import (
 )
 
 estilos()
-encabezado(
-    "Sube una foto de tu plato",
-    "Te mostramos los platos del índice que más se le parecen: mismo tipo de comida, "
-    "colores o presentación.",
-)
-
 listo = barra_estado()
 
-archivo = st.file_uploader(
-    "Foto de comida (JPG, PNG, WebP o BMP, hasta 10 MB)",
-    type=["jpg", "jpeg", "png", "webp", "bmp"],
-)
+# Portada: encabezado y zona de subida sobre la foto de fondo.
+with st.container(key="portada"):
+    encabezado(
+        "Sube una foto de tu plato",
+        "Te mostramos los platos del índice que más se le parecen: mismo tipo de comida, "
+        "colores o presentación.",
+    )
+
+    archivo = st.file_uploader(
+        "Foto de comida (JPG, PNG, WebP o BMP, hasta 10 MB)",
+        type=["jpg", "jpeg", "png", "webp", "bmp"],
+    )
 
 if archivo is not None:
     datos = archivo.getvalue()

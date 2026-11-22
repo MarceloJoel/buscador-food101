@@ -22,3 +22,4 @@ resultado.jpg
 Thumbs.db
 .streamlit/secrets.toml
 /.omc
+/graphify-out

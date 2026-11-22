@@ -6,12 +6,6 @@ import streamlit as st
 from ui_comun import API, barra_estado, encabezado, estilos, mostrar_resultados
 
 estilos()
-encabezado(
-    "¿Qué se te antoja hoy?",
-    "Describe un plato con tus palabras y te mostramos las fotos que más se le parecen "
-    "entre 101 tipos de comida.",
-)
-
 listo = barra_estado()
 
 EJEMPLOS = [
@@ -32,26 +26,34 @@ def _usar_ejemplo() -> None:
         st.session_state.consulta = st.session_state.ejemplo
 
 
-c1, c2 = st.columns([5, 1], vertical_alignment="bottom")
-consulta = c1.text_input(
-    "Describe un plato",
-    key="consulta",
-    placeholder="Por ejemplo: a bowl of spicy noodles",
-    label_visibility="collapsed",
-)
-buscar = c2.button("Buscar", type="primary", use_container_width=True)
+# Portada: encabezado, buscador y ejemplos sobre la foto de fondo.
+with st.container(key="portada"):
+    encabezado(
+        "¿Qué se te antoja hoy?",
+        "Describe un plato con tus palabras y te mostramos las fotos que más se le parecen "
+        "entre 101 tipos de comida.",
+    )
 
-st.pills(
-    "Ideas para empezar",
-    EJEMPLOS,
-    key="ejemplo",
-    on_change=_usar_ejemplo,
-    label_visibility="collapsed",
-)
-st.markdown(
-    "<p class='nota'>El modelo entiende mejor las descripciones en inglés.</p>",
-    unsafe_allow_html=True,
-)
+    c1, c2 = st.columns([5, 1], vertical_alignment="bottom")
+    consulta = c1.text_input(
+        "Describe un plato",
+        key="consulta",
+        placeholder="Por ejemplo: a bowl of spicy noodles",
+        label_visibility="collapsed",
+    )
+    buscar = c2.button("Buscar", type="primary", use_container_width=True)
+
+    st.pills(
+        "Ideas para empezar",
+        EJEMPLOS,
+        key="ejemplo",
+        on_change=_usar_ejemplo,
+        label_visibility="collapsed",
+    )
+    st.markdown(
+        "<p class='nota'>El modelo entiende mejor las descripciones en inglés.</p>",
+        unsafe_allow_html=True,
+    )
 
 if (buscar or consulta) and listo and consulta.strip():
     with st.spinner("Buscando platos..."):
