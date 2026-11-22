@@ -99,7 +99,24 @@ python -c "import torch; print(torch.cuda.is_available())"
 
 ## Uso
 
+> **Importante:** todos los comandos de esta sección (`python`, `uvicorn`, `streamlit`) están instalados **dentro del entorno virtual**. Cada terminal nueva debe activarlo primero desde la raíz del proyecto; si no, PowerShell responde `El término 'uvicorn' no se reconoce...`.
+>
+> ```powershell
+> cd buscador-food101
+> .\.venv\Scripts\Activate.ps1
+> ```
+>
+> El prompt debe mostrar `(.venv)` al inicio. Si PowerShell bloquea el script por la política de ejecución, habilítala una vez para tu usuario:
+>
+> ```powershell
+> Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+> ```
+>
+> Alternativa sin activar: invocar los ejecutables del entorno directamente, por ejemplo `.\.venv\Scripts\uvicorn.exe api.main:app --port 8000`.
+
 ### 1. Construir el índice
+
+Con el entorno activado:
 
 ```powershell
 python construir_indice.py
@@ -107,25 +124,37 @@ python construir_indice.py
 
 Descarga Food-101 desde Hugging Face (~5 GB, una sola vez), calcula los embeddings de las 25,250 imágenes de validación y escribe `data/index/`. Toma unos 10 minutos en GPU.
 
-### 2. Levantar la API
+### 2. Levantar la API (terminal 1)
 
 ```powershell
+.\.venv\Scripts\Activate.ps1
 uvicorn api.main:app --port 8000
 ```
 
-Documentación interactiva en `http://localhost:8000/docs`.
-
-### 3. Levantar el frontend
-
-En otra terminal, con el entorno activado:
+Para desarrollo, con recarga automática al guardar cambios en el backend:
 
 ```powershell
+uvicorn api.main:app --reload --reload-dir api --port 8000
+```
+
+`--reload-dir api` evita que vigile `data/` (25,250 imágenes) y `.venv/`.
+
+Documentación interactiva en `http://localhost:8000/docs`. El frontend espera la API en `http://localhost:8000`, así que conserva ese puerto.
+
+### 3. Levantar el frontend (terminal 2)
+
+En otra terminal, también con el entorno activado:
+
+```powershell
+.\.venv\Scripts\Activate.ps1
 streamlit run app.py
 ```
 
 Disponible en `http://localhost:8501`.
 
 ### 4. Reproducir la evaluación
+
+Con el entorno activado:
 
 ```powershell
 python evaluar.py
